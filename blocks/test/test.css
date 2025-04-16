@@ -1,0 +1,190 @@
+.usa-overlay {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none; // can be toggled via JS when menu is open
+}
+
+.usa-header {
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #dfe1e6;
+  font-family: 'Public Sans', sans-serif;
+
+  &--extended {
+    padding: 0;
+  }
+
+  .usa-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+
+    .usa-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+
+      .usa-logo__text a {
+        color: #1a4480;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .usa-menu-btn {
+      background: none;
+      border: 2px solid #1a4480;
+      padding: 0.5rem 1rem;
+      font-weight: bold;
+      color: #1a4480;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #1a4480;
+        color: #fff;
+      }
+    }
+  }
+
+  .usa-nav {
+    background-color: #fff;
+    border-top: 1px solid #dfe1e6;
+
+    &__inner {
+      padding: 1rem;
+    }
+
+    &__close {
+      background: none;
+      border: none;
+      float: right;
+      cursor: pointer;
+
+      img {
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+
+    &__primary {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .usa-nav__primary-item {
+        margin-bottom: 0.5rem;
+
+        .usa-accordion__button {
+          background: none;
+          border: none;
+          font-size: 1rem;
+          font-weight: bold;
+          color: #1a4480;
+          cursor: pointer;
+          width: 100%;
+          text-align: left;
+          padding: 0.75rem;
+
+          &:hover {
+            background-color: #f0f0f0;
+          }
+
+          &.usa-current {
+            color: #d83732;
+          }
+        }
+
+        .usa-nav__submenu {
+          display: none;
+          padding: 1rem 0;
+
+          &.usa-megamenu {
+            background-color: #f8f8f8;
+
+            .grid-row {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 1rem;
+            }
+
+            .usa-col {
+              .usa-nav__submenu-list {
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                .usa-nav__submenu-item {
+                  margin: 0.25rem 0;
+
+                  a {
+                    color: #1a4480;
+                    text-decoration: none;
+
+                    &:hover {
+                      text-decoration: underline;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .usa-nav-link {
+        display: block;
+        padding: 0.75rem;
+        font-weight: bold;
+        color: #1a4480;
+        text-decoration: none;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+
+    &__secondary {
+      margin-top: 2rem;
+
+      &-links {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 1rem 0;
+      }
+
+      .usa-search {
+        display: flex;
+        align-items: center;
+
+        .usa-input {
+          flex: 1;
+          padding: 0.5rem;
+          border: 1px solid #ccc;
+          border-radius: 4px 0 0 4px;
+        }
+
+        .usa-button {
+          background-color: #1a4480;
+          border: none;
+          border-radius: 0 4px 4px 0;
+          padding: 0.5rem 1rem;
+          cursor: pointer;
+
+          .usa-search__submit-icon {
+            width: 1rem;
+            height: 1rem;
+          }
+
+          &:hover {
+            background-color: #122d57;
+          }
+        }
+      }
+    }
+  }
+}

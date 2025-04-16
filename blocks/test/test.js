@@ -157,6 +157,10 @@ function createHeaderContainer() {
 
 // Entry point function
 export default function decorate(block) {
+  const navMeta = getMetadata('test');
+  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/test';
+  const fragment = await loadFragment(navPath);
+
   block.innerHTML = ''; // clear the block
   block.append(createOverlay(), createHeaderContainer());
 }
