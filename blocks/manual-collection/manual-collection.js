@@ -1,5 +1,5 @@
 function getDateValue(date) {
-  return date + 'T00:00:00';
+  return date.concat('T00:00:00');
 }
 
 function getDateText(date) {
@@ -27,7 +27,7 @@ export default function decorate(block) {
       para.classList.add('usa-collection__description');
       li.append(divBody);
     }
-    let date = div.lastElementChild.innerHTML;
+    const date = div.lastElementChild.innerHTML;
     const timeTag = document.createElement('time');
     timeTag.setAttribute('datetime', getDateValue(date));
     timeTag.innerHTML = getDateText(date);
