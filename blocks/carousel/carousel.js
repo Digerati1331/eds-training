@@ -1,4 +1,4 @@
-export default function decorate( block ) {
+export default function decorate(block) {
   const divCarouselSlide = document.createElement('div');
   divCarouselSlide.setAttribute('id', 'carouselExampleControls');
   divCarouselSlide.setAttribute('class', 'carousel slide');
