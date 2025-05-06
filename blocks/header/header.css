@@ -1,5 +1,4 @@
-/* header and nav layout *//*
-
+/* header and nav layout */
 header .nav-wrapper {
   background-color: var(--background-color);
   width: 100%;
@@ -55,9 +54,7 @@ header nav a:any-link {
   color: currentcolor;
 }
 
-*/
-/* hamburger *//*
-
+/* hamburger */
 header nav .nav-hamburger {
   grid-area: hamburger;
   height: 22px;
@@ -138,9 +135,7 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
   }
 }
 
-*/
-/* brand *//*
-
+/* brand */
 header .nav-brand {
   grid-area: brand;
   flex-basis: 128px;
@@ -154,9 +149,7 @@ header nav .nav-brand img {
   height: auto;
 }
 
-*/
-/* sections *//*
-
+/* sections */
 header nav .nav-sections {
   grid-area: sections;
   flex: 1 1 auto;
@@ -269,179 +262,7 @@ header nav .nav-sections ul > li > ul > li {
   }
 }
 
-*/
-/* tools *//*
-
+/* tools */
 header nav .nav-tools {
   grid-area: tools;
-}
-*/
-/* Root header styling */
-.usa-header {
-  border-bottom: 1px solid #e1e1e1;
-  padding: 1rem 0;
-}
-
-/* Logo */
-.usa-logo__text a {
-  font-weight: 700;
-  font-size: 2rem;
-  color: #000;
-  text-decoration: none;
-}
-
-/* Navbar */
-.usa-navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-}
-
-/* Nav toggle buttons */
-.usa-menu-btn,
-.usa-nav__close {
-  display: none; // visible only on mobile
-}
-
-/* Main navigation */
-.usa-nav {
-  width: 100%;
-  background-color: white;
-  font-family: system-ui, sans-serif;
-}
-
-/* Primary navigation items */
-.usa-nav__primary {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0 2rem;
-  background-color: white;
-  border-bottom: 1px solid #e1e1e1;
-}
-
-.usa-nav__primary-item {
-  margin-right: 1rem;
-  position: relative;
-}
-
-.usa-nav__link {
-  padding: 1rem 1.25rem;
-  display: inline-block;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #5b5b5b;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.usa-nav__link:hover,
-.usa-nav__link[aria-expanded="true"] {
-  background-color: #f0f0f0;
-}
-
-.usa-current {
-  color: #000;
-  background-color: white;
-  border-bottom: 3px solid #005ea2;
-}
-
-.usa-current span {
-  font-weight: 700;
-}
-
-/* Mega menu dropdown */
-.usa-megamenu {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background-color: #162e51;
-  padding: 2rem;
-  display: none;
-  z-index: 1000;
-}
-
-.usa-nav__primary-item button[aria-expanded="true"] + .usa-megamenu {
-  display: block;
-}
-
-/* Grid columns for submenu */
-.grid-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-}
-
-.usa-col {
-  flex: 1 1 20%;
-  min-width: 160px;
-}
-
-/* Submenu links */
-.usa-nav__submenu-item {
-  margin-bottom: 1rem;
-}
-
-.usa-nav__submenu-item a {
-  color: #ffffff;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.usa-nav__submenu-item a:hover {
-  text-decoration: underline;
-}
-
-/* Secondary nav (top right) */
-.usa-nav__secondary {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 1rem 2rem;
-}
-
-.usa-nav__secondary-links {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  margin: 0;
-  padding: 0;
-}
-
-.usa-nav__secondary-links li {
-  font-size: 0.875rem;
-  color: #5b5b5b;
-}
-
-.usa-nav__secondary-links li:not(:last-child)::after {
-  content: '|';
-  margin: 0 0.5rem;
-  color: #999;
-}
-
-/* Search box */
-.usa-search--small {
-  margin-left: 1rem;
-  display: flex;
-}
-
-.usa-search--small .usa-input {
-  border: 1px solid #666;
-  padding: 0.5rem;
-  font-size: 0.875rem;
-}
-
-.usa-search--small .usa-button {
-  background-color: #005ea2;
-  color: white;
-  padding: 0 0.75rem;
-  border: none;
-}
-
-.usa-search__submit-icon {
-  width: 1rem;
-  height: 1rem;
 }
