@@ -3,7 +3,7 @@ import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
-/*
+
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
@@ -51,23 +51,23 @@ function focusNavSection() {
   document.activeElement.addEventListener('keydown', openOnKeydown);
 }
 
-*//**
+/**
  * Toggles all nav sections
  * @param {Element} sections The container element
  * @param {Boolean} expanded Whether the element should be expanded or collapsed
- *//*
+ */
 function toggleAllNavSections(sections, expanded = false) {
   sections.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((section) => {
     section.setAttribute('aria-expanded', expanded);
   });
 }
 
-*//**
+/**
  * Toggles the entire nav
  * @param {Element} nav The container element
  * @param {Element} navSections The nav sections within the container element
  * @param {*} forceExpanded Optional param to force nav expand behavior when not null
- *//*
+ */
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
@@ -103,10 +103,10 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
-*//**
+/**
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
- *//*
+ */
 export default async function decorate(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
@@ -163,150 +163,4 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
-}*/
-
-export default function decorate(block) {
-
-  const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
-  const fragment = await loadFragment(navPath);
-
-  block.innerHTML = ''; // Clear the existing content
-
-  // Create overlay
-  const overlay = document.createElement('div');
-  overlay.className = 'usa-overlay';
-
-  // Header container
-  const header = document.createElement('header');
-  header.className = 'usa-header usa-header--extended';
-  while (fragment.firstElementChild) header.append(fragment.firstElementChild);
-
-  // Navbar
-  const navbar = document.createElement('div');
-  navbar.className = 'usa-navbar';
-
-  const logo = document.createElement('div');
-  logo.className = 'usa-logo';
-  logo.innerHTML = `
-    <em class="usa-logo__text">
-      <a href="/" title="Project title">Project title</a>
-    </em>
-  `;
-
-  const menuButton = document.createElement('button');
-  menuButton.type = 'button';
-  menuButton.className = 'usa-menu-btn';
-  menuButton.textContent = 'Menu';
-
-  navbar.append(logo, menuButton);
-
-  // Nav
-  const nav = document.createElement('nav');
-  nav.className = 'usa-nav';
-  nav.setAttribute('aria-label', 'Primary navigation');
-
-  const navInner = document.createElement('div');
-  navInner.className = 'usa-nav__inner';
-
-  // Close Button
-  const closeButton = document.createElement('button');
-  closeButton.type = 'button';
-  closeButton.className = 'usa-nav__close';
-  closeButton.innerHTML = `
-    <img src="/assets/img/usa-icons/close.svg" role="img" alt="Close" />
-  `;
-
-  // Primary nav list
-  const primaryNav = document.createElement('ul');
-  primaryNav.className = 'usa-nav__primary usa-accordion';
-
-  // Helper to create submenu columns
-  const createSubmenuCols = () => {
-    const row = document.createElement('div');
-    row.className = 'grid-row grid-gap-4';
-    for (let i = 0; i < 4; i++) {
-      const col = document.createElement('div');
-      col.className = 'usa-col';
-      col.innerHTML = `
-        <ul class="usa-nav__submenu-list">
-          <li class="usa-nav__submenu-item"><a href="javascript:void(0);">Navigation link</a></li>
-          <li class="usa-nav__submenu-item"><a href="javascript:void(0);">A very long navigation link that goes onto two lines</a></li>
-          <li class="usa-nav__submenu-item"><a href="javascript:void(0);">Navigation link</a></li>
-        </ul>
-      `;
-      row.append(col);
-    }
-    return row;
-  };
-
-  // Nav item 1
-  const navItem1 = document.createElement('li');
-  navItem1.className = 'usa-nav__primary-item';
-  navItem1.innerHTML = `
-    <button type="button" class="usa-accordion__button usa-nav__link usa-current"
-      aria-expanded="false" aria-controls="extended-mega-nav-section-one">
-      <span>Current section</span>
-    </button>
-  `;
-
-  const submenu1 = document.createElement('div');
-  submenu1.id = 'extended-mega-nav-section-one';
-  submenu1.className = 'usa-nav__submenu usa-megamenu';
-  submenu1.append(createSubmenuCols());
-  navItem1.append(submenu1);
-
-  // Nav item 2
-  const navItem2 = document.createElement('li');
-  navItem2.className = 'usa-nav__primary-item';
-  navItem2.innerHTML = `
-    <button type="button" class="usa-accordion__button usa-nav__link"
-      aria-expanded="false" aria-controls="extended-mega-nav-section-two">
-      <span>Section</span>
-    </button>
-  `;
-
-  const submenu2 = document.createElement('div');
-  submenu2.id = 'extended-mega-nav-section-two';
-  submenu2.className = 'usa-nav__submenu usa-megamenu';
-  submenu2.append(createSubmenuCols());
-  navItem2.append(submenu2);
-
-  // Simple link item
-  const navItem3 = document.createElement('li');
-  navItem3.className = 'usa-nav__primary-item';
-  navItem3.innerHTML = `
-    <a href="javascript:void(0);" class="usa-nav-link">Simple link</a>
-  `;
-
-  primaryNav.append(navItem1, navItem2, navItem3);
-
-  // Secondary nav section
-  const secondary = document.createElement('div');
-  secondary.className = 'usa-nav__secondary';
-
-  const secondaryLinks = document.createElement('ul');
-  secondaryLinks.className = 'usa-nav__secondary-links';
-
-  const searchSection = document.createElement('section');
-  searchSection.setAttribute('aria-label', 'Search component');
-  searchSection.innerHTML = `
-    <form class="usa-search usa-search--small" role="search">
-      <label class="usa-sr-only" for="search-field">Search</label>
-      <input class="usa-input" id="search-field" type="search" name="search" />
-      <button class="usa-button" type="submit">
-        <img src="/assets/img/usa-icons-bg/search--white.svg"
-             class="usa-search__submit-icon" alt="Search" />
-      </button>
-    </form>
-  `;
-
-  secondary.append(secondaryLinks, searchSection);
-
-  // Assemble
-  navInner.append(closeButton, primaryNav, secondary);
-  nav.append(navInner);
-  header.append(navbar, nav);
-
-  block.append(overlay, header);
 }
